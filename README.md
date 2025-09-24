@@ -80,110 +80,6 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Teams
-    SELECT 
-        t.TeamID,
-        t.Name    AS TeamName,
-        t.Stadium,
-        t.Logo,
-        t.URL
-    FROM dbo.Teams t
-    WHERE (@TeamID IS NULL OR t.TeamID = @TeamID)
-    ORDER BY t.TeamID;
-
-    -- Games
-    SELECT
-        t.TeamID,
-        t.Name       AS TeamName,
-        t.Stadium,
-        g.GameID,
-        g.GameDateTime,
-        CASE WHEN g.HomeTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END AS TeamScore,
-        CASE WHEN g.HomeTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END AS OppScore,
-        CASE WHEN g.HomeTeamID = t.TeamID THEN 1 ELSE 0 END AS IsHome,
-        CASE WHEN g.HomeTeamID = t.TeamID THEN g.AwayTeamID ELSE g.HomeTeamID END AS OppTeamID,
-        g.HomeTeamID,
-        g.AwayTeamID,
-        g.MVPPlayerID,
-        CASE WHEN
-            (CASE WHEN g.HomeTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END) >
-            (CASE WHEN g.HomeTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END)
-        THEN 1 ELSE 0 END AS IsWin,
-        CASE WHEN
-            (CASE WHEN g.HomeTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END) <
-            (CASE WHEN g.HomeTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END)
-        THEN 1 ELSE 0 END AS IsLoss,
-        (CASE WHEN g.HomeTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END) -
-        (CASE WHEN g.HomeTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END) AS Margin
-    FROM dbo.Teams t
-    JOIN dbo.Games g ON g.HomeTeamID = t.TeamID
-    WHERE (@TeamID IS NULL OR t.TeamID = @TeamID)
-      AND (@StartDate IS NULL OR g.GameDateTime >= @StartDate)
-      AND (@EndDate   IS NULL OR g.GameDateTime < DATEADD(DAY, 1, @EndDate))
-
-    UNION ALL
-
-    SELECT
-        t.TeamID,
-        t.Name       AS TeamName,
-        t.Stadium,
-        g.GameID,
-        g.GameDateTime,
-        CASE WHEN g.AwayTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END AS TeamScore,
-        CASE WHEN g.AwayTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END AS OppScore,
-        CASE WHEN g.AwayTeamID = t.TeamID THEN 0 ELSE 1 END AS IsHome,
-        CASE WHEN g.AwayTeamID = t.TeamID THEN g.HomeTeamID ELSE g.AwayTeamID END AS OppTeamID,
-        g.HomeTeamID,
-        g.AwayTeamID,
-        g.MVPPlayerID,
-        CASE WHEN
-            (CASE WHEN g.AwayTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END) >
-            (CASE WHEN g.AwayTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END)
-        THEN 1 ELSE 0 END AS IsWin,
-        CASE WHEN
-            (CASE WHEN g.AwayTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END) <
-            (CASE WHEN g.AwayTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END)
-        THEN 1 ELSE 0 END AS IsLoss,
-        (CASE WHEN g.AwayTeamID = t.TeamID THEN g.AwayScore ELSE g.HomeScore END) -
-        (CASE WHEN g.AwayTeamID = t.TeamID THEN g.HomeScore ELSE g.AwayScore END) AS Margin
-    FROM dbo.Teams t
-    JOIN dbo.Games g ON g.AwayTeamID = t.TeamID
-    WHERE (@TeamID IS NULL OR t.TeamID = @TeamID)
-      AND (@StartDate IS NULL OR g.GameDateTime >= @StartDate)
-      AND (@EndDate   IS NULL OR g.GameDateTime < DATEADD(DAY, 1, @EndDate))
-
-    ORDER BY TeamID, GameDateTime;
-
-    -- Players
-    SELECT 
-        tp.TeamID,
-        p.PlayerID,
-        p.[Name] AS PlayerName
-    FROM dbo.Team_Player tp
-    JOIN dbo.Players p ON p.PlayerID = tp.PlayerID
-    WHERE (@TeamID IS NULL OR tp.TeamID = @TeamID)
-    ORDER BY tp.TeamID, p.PlayerID;
-END
-GO
-```
-
-### Execute
-```sql
-USE [NBA];
-GO
-
-IF OBJECT_ID('dbo.usp_NBA_Details', 'P') IS NOT NULL
-    DROP PROCEDURE dbo.usp_NBA_Details;
-GO
-
-CREATE PROCEDURE dbo.usp_NBA_Details
-    @StartDate DATETIME = NULL,   
-    @EndDate   DATETIME = NULL,   
-    @TeamID    INT       = NULL   
-AS
-BEGIN
-    SET NOCOUNT ON;
-
     SELECT 
         t.TeamID,
         t.Name    AS TeamName,
@@ -268,7 +164,10 @@ BEGIN
     ORDER BY tp.TeamID, p.PlayerID;
 END
 GO
+```
 
+### Execute
+```sql
 EXEC dbo.usp_NBA_Details
 ```
 
