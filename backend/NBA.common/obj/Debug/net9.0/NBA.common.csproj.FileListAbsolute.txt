@@ -1,0 +1,11 @@
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/bin/Debug/net9.0/NBA.common.deps.json
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/bin/Debug/net9.0/NBA.common.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/bin/Debug/net9.0/NBA.common.pdb
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.AssemblyInfoInputs.cache
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.AssemblyInfo.cs
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.csproj.CoreCompileInputs.cache
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/refint/NBA.common.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/NBA.common.pdb
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.common/obj/Debug/net9.0/ref/NBA.common.dll

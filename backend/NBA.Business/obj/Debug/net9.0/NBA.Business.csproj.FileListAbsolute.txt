@@ -1,0 +1,15 @@
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/bin/Debug/net9.0/NBA.Business.deps.json
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/bin/Debug/net9.0/NBA.Business.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/bin/Debug/net9.0/NBA.Business.pdb
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.GeneratedMSBuildEditorConfig.editorconfig
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.AssemblyInfoInputs.cache
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.AssemblyInfo.cs
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.csproj.CoreCompileInputs.cache
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/refint/NBA.Business.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.pdb
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/ref/NBA.Business.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/bin/Debug/net9.0/NBA.common.dll
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/bin/Debug/net9.0/NBA.common.pdb
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Business.csproj.AssemblyReference.cache
+/Users/loicyatou/Documents/softwareengineer/Code/NBA.Business/obj/Debug/net9.0/NBA.Busi.9BFF63D6.Up2Date
